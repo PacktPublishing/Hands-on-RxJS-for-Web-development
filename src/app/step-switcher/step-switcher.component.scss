@@ -1,0 +1,39 @@
+.switcher {
+  display: inline-block;
+  vertical-align: text-top;
+  width: 200px;
+  height: 180px;
+  margin: 0 5px;
+  border: 1px solid lightblue;
+  text-align: center;
+}
+.switcher .title {
+  padding-top: 20px;
+  height: 70px;
+}
+
+.step {
+  float: left;
+  width: 50%;
+  height: 100px;
+  color: white;
+  line-height: 100px;
+  font-size: 50px;
+  text-align: center;
+  opacity: .3;
+  cursor: pointer;
+}
+
+.step:hover {
+  outline: 1px solid black;
+}
+.step-one {
+  background-color: green;
+}
+
+.step-two {
+  background-color: red;
+}
+.switcher .active {
+  opacity: 1;
+}
