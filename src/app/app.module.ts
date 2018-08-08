@@ -1,25 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { StoreModule } from '@ngrx/store';
-
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { stepSwitcherReducer } from './step-switcher/step-switcher.reducer';
-import { StepSwitcherComponent } from './step-switcher/step-switcher.component';
-import { CounterComponent } from './counter/counter.component';
-
-let reducers = {
-    stepValue: stepSwitcherReducer
-};
-
+import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
+import { FormsModule }   from '@angular/forms';
 @NgModule({
     declarations: [
         AppComponent,
-        StepSwitcherComponent,
-        CounterComponent
+        AutoCompleteComponent
     ],
     imports: [
         BrowserModule,
-        StoreModule.forRoot(reducers)
+        HttpClientModule,
+        HttpClientJsonpModule,
+        FormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
