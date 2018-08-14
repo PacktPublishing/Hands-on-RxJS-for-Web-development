@@ -4,5 +4,6 @@
   </div>
   <div class="card-body">
     <span *ngFor="let item of items">{{item}}</span>
+    <button #moreButton class="btn btn-primary" [class.disabled]="disableMoreButton">More...</button>
   </div>
 </div>
