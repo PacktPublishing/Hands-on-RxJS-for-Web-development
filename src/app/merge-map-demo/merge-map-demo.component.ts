@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ajax } from 'rxjs/ajax';
 import { mergeMap } from 'rxjs/operators';
-import { of } from 'rxjs/internal/observable/of';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-merge-map-demo',
