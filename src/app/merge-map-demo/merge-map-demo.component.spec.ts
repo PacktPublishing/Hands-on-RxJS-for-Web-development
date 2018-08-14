@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AutoCompleteComponent } from './auto-complete.component';
+import { MergeMapDemoComponent } from './merge-map-demo.component';
 
-describe('AutoCompleteComponent', () => {
-  let component: AutoCompleteComponent;
-  let fixture: ComponentFixture<AutoCompleteComponent>;
+describe('MergeMapDemoComponent', () => {
+  let component: MergeMapDemoComponent;
+  let fixture: ComponentFixture<MergeMapDemoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AutoCompleteComponent ]
+      declarations: [ MergeMapDemoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AutoCompleteComponent);
+    fixture = TestBed.createComponent(MergeMapDemoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

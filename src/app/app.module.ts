@@ -2,18 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
-import { FormsModule }   from '@angular/forms';
+import { MergeMapDemoComponent } from './merge-map-demo/merge-map-demo.component';
 @NgModule({
     declarations: [
         AppComponent,
-        AutoCompleteComponent
+        MergeMapDemoComponent,
     ],
     imports: [
         BrowserModule,
         HttpClientModule,
-        HttpClientJsonpModule,
-        FormsModule
+        HttpClientJsonpModule
     ],
     providers: [],
     bootstrap: [AppComponent]
