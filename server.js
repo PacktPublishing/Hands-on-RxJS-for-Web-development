@@ -15,9 +15,11 @@ app.use(express.json()); // to support JSON-encoded bodies
 let value = 6;
 /* Main routes */
 app.get('/list-data', function(req, res) {
+    console.log('Page: ', req.query.page);
+
     let nextIndex;
-    console.log('req.query', req.query);
     let pageIndex = +req.query.page;
+
         value = pageIndex * 5 + 1;
 
     if (req.query.page < 3) {
