@@ -11,25 +11,33 @@ app.use(function(req, res, next) {
 
 app.use(express.json()); // to support JSON-encoded bodies
 
+let counter = 0;
+let responseReady = {};
 
-let value = 6;
 /* Main routes */
-app.get('/list-data', function(req, res) {
-    let nextIndex;
-    console.log('req.query', req.query);
-    let pageIndex = +req.query.page;
-        value = pageIndex * 5 + 1;
+app.get('/request-data', function(req, res) {
 
-    if (req.query.page < 3) {
-        nextIndex = pageIndex + 1;
-        res.status(200).send({
-            nextIndex,
-            data: [value++, value++, value++, value++, value++]
-        });
+    const requestAnswer = {dataId: counter++};
+
+    setTimeout(() => {
+        responseReady[requestAnswer.dataId] = true;
+    }, 3000);
+
+    res.status(200).send(requestAnswer);
+});
+
+app.get('/get-response', function(req, res) {
+
+    const dataId = req.query.dataId;
+    const notReadyAnswer = {ready: false};
+    const readyAnswer = {data: [1,2,3,4,5], ready: true};
+
+    if (!responseReady[dataId]) {
+        console.log('Not ready...');
+        res.status(200).send(notReadyAnswer);
     } else {
-        res.status(200).send({
-            data: [value++, value++, value++, value++, value++]
-        });
+        console.log('Ready!');
+        res.status(200).send(readyAnswer);
     }
 });
 

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MergeScanDemoComponent } from './merge-scan-demo.component';
+import { MergeScanDemoComponent } from './merge-map-demo.component';
 
 describe('MergeScanDemoComponent', () => {
   let component: MergeScanDemoComponent;
