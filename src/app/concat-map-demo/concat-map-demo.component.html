@@ -1,0 +1,16 @@
+<div class="card wrapper">
+  <div class="card-header">
+    <h3>MergeMap Example</h3>
+  </div>
+  <div class="card-body">
+    <span >{{item}}</span>
+    <ul class="list-group">
+      <ng-container *ngFor="let item of items">
+        <li class="list-group-item">
+          {{item.value}}
+          <button type="button" class="btn btn-danger" (click)="deleteSubject.next(item.id)">Delete</button>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</div>

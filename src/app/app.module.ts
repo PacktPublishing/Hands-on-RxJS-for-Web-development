@@ -2,11 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { MergeMapDemoComponent } from './merge-map-demo/merge-map-demo.component';
+import { ConcatMapDemoComponent } from './concat-map-demo/concat-map-demo.component';
 @NgModule({
     declarations: [
         AppComponent,
-        MergeMapDemoComponent,
+        ConcatMapDemoComponent,
     ],
     imports: [
         BrowserModule,
