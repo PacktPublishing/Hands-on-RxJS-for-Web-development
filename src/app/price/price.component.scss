@@ -1,16 +1,14 @@
-.counter {
+.card.price {
+  margin-left: 20px;
+  width: 18rem;
   display: inline-block;
-  vertical-align: text-top;
-  width: 200px;
-  height: 180px;
-  margin: 0 5px;
-  border: 1px solid lightblue;
+  vertical-align:top;
+}
+
+.card.price .card-body {
   text-align: center;
 }
-.counter .title {
-  padding-top: 20px;
-  height: 70px;
-}
+
 .value {
   float: left;
   width: 100%;

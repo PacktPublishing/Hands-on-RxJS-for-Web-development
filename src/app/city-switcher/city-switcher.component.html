@@ -1,0 +1,12 @@
+<div class="card cities">
+    <div class="card-body">
+        <div class="card-text"><h3>Cities</h3></div>
+        <div class="btn-group btn-group-lg cities" role="group">
+            <button *ngFor="let city of Object.keys(citiesObject); let i = index"
+                    class="btn btn btn-primary"
+                    [class.active]="i === activeIndex"
+                    (click)="cityClick(citiesObject[city], i)"
+            >{{city}}<br>{{citiesObject[city]}}</button>
+        </div>
+    </div>
+</div>

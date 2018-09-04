@@ -1,0 +1,12 @@
+<div class="card coefficients">
+    <div class="card-body">
+        <div class="card-text"><h3>Coefficients</h3></div>
+        <div class="btn-group btn-group-lg coefficients" role="group" >
+            <button *ngFor="let coefficient of coefficientsList; let i = index"
+                    class="btn btn btn-success"
+                    [class.active]="i === activeIndex"
+                    (click)="setCoefficientValue(coefficient, i)"
+            >{{coefficient}}</button>
+        </div>
+    </div>
+</div>

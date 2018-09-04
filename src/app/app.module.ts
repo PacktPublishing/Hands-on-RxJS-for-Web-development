@@ -3,25 +3,30 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
-import { stepSwitcherReducer } from './step-switcher/step-switcher.reducer';
-import { StepSwitcherComponent } from './step-switcher/step-switcher.component';
-import { CounterComponent } from './counter/counter.component';
+import { coefficientSwitcherReducer } from './coefficient-switcher/coefficient-switcher.reducer';
+import { CoefficientSwitcherComponent } from './coefficient-switcher/coefficient-switcher.component';
+import { CitySwitcherComponent } from './city-switcher/city-switcher.component';
+import { PriceComponent } from './price/price.component';
+import { HttpService } from './HttpService/http.service';
+import { citySwitcherReducer } from './city-switcher/city-switcher.reducer';
 
 let reducers = {
-    stepValue: stepSwitcherReducer
+    cityPrice: citySwitcherReducer,
+    coefficient: coefficientSwitcherReducer
 };
 
 @NgModule({
     declarations: [
         AppComponent,
-        StepSwitcherComponent,
-        CounterComponent
+        CoefficientSwitcherComponent,
+        CitySwitcherComponent,
+        PriceComponent
     ],
     imports: [
         BrowserModule,
         StoreModule.forRoot(reducers)
     ],
-    providers: [],
+    providers: [HttpService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
