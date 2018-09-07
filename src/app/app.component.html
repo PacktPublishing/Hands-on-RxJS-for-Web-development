@@ -3,9 +3,13 @@
         <h3>zip - combineLatest - withLatestFrom example</h3>
     </div>
     <div class="card-body main" *ngIf="widgetsVisibility">
+
         <city-switcher [citiesObject]="citiesObject"></city-switcher>
+
         <coefficient-switcher [coefficientsList]="coefficientsList"></coefficient-switcher>
+
         <price></price>
+
     </div>
     <div class="card-body loading" *ngIf="!widgetsVisibility">
         Loading....
