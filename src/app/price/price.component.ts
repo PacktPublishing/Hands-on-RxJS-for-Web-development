@@ -22,9 +22,10 @@ class PriceComponent implements OnInit, OnDestroy {
         const coefficients$ = this.store.pipe(map((state) => state.coefficient), filter(x => x > 0));
 
         this.subscriptions[0] = combineLatest(cities$, coefficients$)
-            .subscribe(([cityValue, coefficient]) => this.value = parseInt(cityValue, 10) * parseFloat(coefficient))
+            .subscribe(([cityValue, coefficient]) => this.value = parseInt(cityValue, 10) * parseFloat(coefficient));
+
         this.subscriptions[1] = button$.pipe(withLatestFrom(cities$, coefficients$))
-            .subscribe(([event, cityValue, coefficient]) => alert('Sending value=' + cityValue + ' and coef=' + coefficient))
+            .subscribe(([event, cityValue, coefficient]) => alert('Sending value=' + cityValue + ' and coef=' + coefficient));
     }
 
 
