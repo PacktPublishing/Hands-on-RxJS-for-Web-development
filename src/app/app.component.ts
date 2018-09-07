@@ -23,7 +23,7 @@ export class AppComponent {
         zip(citiesObject$, coefficientsList$)
             .pipe(take(1))
             .subscribe(([citiesObject, coefficientsList]) => {
-                this.widgetsVisibility = true
+                this.widgetsVisibility = true;
                 this.citiesObject = citiesObject;
                 this.coefficientsList = coefficientsList;
             })
