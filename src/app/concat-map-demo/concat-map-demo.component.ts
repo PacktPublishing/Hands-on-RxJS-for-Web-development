@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ajax } from 'rxjs/ajax';
 import { concatMap, delay, mergeMap } from 'rxjs/operators';
-import { of, Subject } from 'rxjs';
+import { forkJoin, of, Subject } from 'rxjs';
 import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
@@ -48,5 +48,16 @@ export class ConcatMapDemoComponent implements OnInit, OnDestroy {
     deleteItem(id) {
         // return ajax.post(deleteUrl, headers, {id})
         return of({id, success: true}).pipe(delay(2000));
+    }
+
+    deleteAllClick() {
+        const ids = this.items.map((item) => item.id);
+        const arrayOfObservables = ids.map((id) => this.deleteItem(id));
+        forkJoin(arrayOfObservables).subscribe((responses) => {
+            responses.forEach((response) =>{
+                let index = this.items.findIndex((item) => response.id === item.id);
+                this.items.splice(index, 1);
+            });
+        });
     }
 }
