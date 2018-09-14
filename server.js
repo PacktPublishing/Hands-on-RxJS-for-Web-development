@@ -12,27 +12,23 @@ app.use(function(req, res, next) {
 app.use(express.json()); // to support JSON-encoded bodies
 
 
-let value = 6;
+let count = 0;
 /* Main routes */
 app.get('/list-data', function(req, res) {
-    console.log('Page: ', req.query.page);
+    console.log('count: ', count);
 
-    let nextIndex;
-    let pageIndex = +req.query.page;
-
-        value = pageIndex * 5 + 1;
-
-    if (req.query.page < 3) {
-        nextIndex = pageIndex + 1;
-        res.status(200).send({
-            nextIndex,
-            data: [value++, value++, value++, value++, value++]
+    if (count++ < 3) {
+        res.status(404).send({
+            message: 'Page not found!'
         });
-    } else {
-        res.status(200).send({
-            data: [value++, value++, value++, value++, value++]
-        });
+        return;
     }
+
+    count = 0;
+    res.status(200).send({
+        success: true,
+        data: 'Some data from BE'
+    });
 });
 
 app.listen(PORT, function() {
