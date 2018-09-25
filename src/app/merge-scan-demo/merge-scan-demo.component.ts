@@ -12,7 +12,7 @@ const baseUrl = 'http://127.0.0.1:4001/list-data?page=';
   styleUrls: ['./merge-scan-demo.component.scss']
 })
 export class MergeScanDemoComponent implements OnInit {
-  public items: number[] = [1, 2, 3, 4, 5];
+  public items: number[] = [];
   @ViewChild('moreButton') moreButton: ElementRef;
   public disableMoreButton: boolean = false;
   private subscription: Subscription;
