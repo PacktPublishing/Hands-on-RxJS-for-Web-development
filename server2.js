@@ -16,12 +16,12 @@ let data = [1,2,3,4,5];
 /* Main routes */
 app.get('/list-data', function(req, res) {
 
-    count = 0;
+    data = data.concat([counter++]);
     res.status(200).send({
         success: true,
         data: data
     });
-    data = data.concat([counter++]);
+
 });
 
 app.listen(PORT, function() {
