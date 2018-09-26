@@ -11,12 +11,14 @@ app.use(function(req, res, next) {
 
 app.use(express.json()); // to support JSON-encoded bodies
 
-counter = 6;
-let data = [1,2,3,4,5];
+counter = 3;
+let data = [1,2];
 /* Main routes */
 app.get('/list-data', function(req, res) {
 
     data = data.concat([counter++]);
+    if (data.length > 10) { data = [1,2]; counter = 3;};
+
     res.status(200).send({
         success: true,
         data: data
