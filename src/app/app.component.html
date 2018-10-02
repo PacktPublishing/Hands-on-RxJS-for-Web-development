@@ -1,5 +1,13 @@
 <div class="container">
+    <div class="page-header">
+        <h1>RxJS 6 unsubscribe </h1>
+        <button class="btn btn-danger destroy" (click)="destroyClick()">Destroy widget</button>
+        <button class="btn btn-success create" (click)="createClick()">Create widget</button>
+    </div>
+    <ng-container *ngFor="let item of items">
+        <app-dummy></app-dummy>
+    </ng-container>
 
-    <app-merge-map-demo></app-merge-map-demo>
+
 </div>
 
