@@ -6,14 +6,13 @@ import {Component} from '@angular/core';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    public items: any[] = [];
+    public createComponent = false;
 
     public destroyClick() {
-        this.items = [];
+        this.createComponent = false;
     }
 
     public createClick() {
-        this.items = Array.from({ length: 10 }).map((u, i) => i); // fill with values
-        console.log('this.items', this.items);
+        this.createComponent = true;
     }
 }

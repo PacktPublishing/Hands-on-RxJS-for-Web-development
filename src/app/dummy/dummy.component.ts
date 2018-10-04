@@ -1,26 +1,31 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {interval, Subscription} from 'rxjs';
+import {interval, Subject, Subscription} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-dummy',
-  templateUrl: './dummy.component.html',
-  styleUrls: ['./dummy.component.scss']
+    selector: 'app-dummy',
+    templateUrl: './dummy.component.html',
+    styleUrls: ['./dummy.component.scss']
 })
 export class DummyComponent implements OnInit, OnDestroy {
-  public value: number = 0;
-  private subscription: Subscription;
-  private dummyData: number[] = Array.from({ length: 1000 }).map((u, i) => i);
+    public value: number = 0;
+    private destroy$ = new Subject();
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-    this.subscription = interval(800).subscribe((value) => {
-      console.log(value, this);
-      this.value = value;
-    })
-  }
+    ngOnInit() {
+        console.log('ngOnInit');
+        interval(800).pipe(takeUntil(this.destroy$))
+            .subscribe((value) => {
+                console.log(value, this);
+                this.value = value;
+            })
+    }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+    ngOnDestroy() {
+        console.log('ngOnDestroy');
+        this.destroy$.next(true);
+        this.destroy$.complete();
+    }
 }

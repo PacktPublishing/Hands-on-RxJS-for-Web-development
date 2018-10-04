@@ -4,10 +4,7 @@
         <button class="btn btn-danger destroy" (click)="destroyClick()">Destroy widget</button>
         <button class="btn btn-success create" (click)="createClick()">Create widget</button>
     </div>
-    <ng-container *ngFor="let item of items">
-        <app-dummy></app-dummy>
-    </ng-container>
 
-
+    <app-dummy *ngIf="createComponent"></app-dummy>
 </div>
 
