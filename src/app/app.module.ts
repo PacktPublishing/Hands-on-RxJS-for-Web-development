@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DummyComponent } from './dummy/dummy.component';
+import { Dummy2Component } from './dummy2/dummy2.component';
 @NgModule({
     declarations: [
         AppComponent,
-        DummyComponent
+        DummyComponent,
+        Dummy2Component
     ],
     imports: [
         BrowserModule,
