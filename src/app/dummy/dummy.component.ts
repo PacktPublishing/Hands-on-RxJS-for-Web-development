@@ -16,11 +16,13 @@ export class DummyComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         console.log('ngOnInit');
-        interval(800).pipe(takeUntil(this.destroy$))
+        interval(1000).pipe(takeUntil(this.destroy$))
             .subscribe((value) => {
-                console.log(value, this);
-                this.value = value;
-            })
+                    console.log(value, this);
+                    this.value = value;
+                },
+                null,
+                () => console.log('Completed'))
     }
 
     ngOnDestroy() {
