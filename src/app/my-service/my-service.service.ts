@@ -22,7 +22,7 @@ export class MyServiceService {
   }
 
   getRange() {
-    of(0, 1, 2, 3).pipe(
+    return of(0, 1, 2, 3).pipe(
       map(x => x + 1)
     )
   }
