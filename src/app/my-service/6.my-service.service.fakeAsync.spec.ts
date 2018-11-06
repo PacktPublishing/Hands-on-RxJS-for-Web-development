@@ -16,38 +16,8 @@ describe('MyServiceService', () => {
     service = TestBed.get(MyServiceService);
   });
 
-  describe('testing sync sequences', () => {
-    it('getRange should return 1..2..3..4 values', () => {
-      let result: number[] = [];
+  describe('testing with fakeAsync', () => {
 
-      service.getRange().subscribe(value => result.push(value))
-
-      expect(result).toEqual([1,2,3,4]);
-    });
   });
-  // describe('testing with done callback', () => {
-  //
-  //
-  //
-  // });
-  //
-  // describe('testing with done VirtualTimeScheduler', () => {
-  //
-  // });
-  //
-  // describe('testing with TestScheduler.run', () => {
-  //
-  // });
-  //
-  // describe('testing with TestScheduler.flush', () => {
-  //
-  // });
-  //
-  // describe('testing with fakeAsync', () => {
-  //
-  // });
-  //
-  // describe('testing with BehaviorSubject', () => {
-  //
-  // });
+
 });

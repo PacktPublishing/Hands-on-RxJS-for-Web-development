@@ -51,7 +51,7 @@ export class MyServiceService {
           delay(timeSec * 1000, scheduler),
           take(5)
           )
-        ))
+        ));
   }
 
   getDataNoScheduler(timeSec) {
