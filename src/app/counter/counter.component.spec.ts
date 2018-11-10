@@ -3,31 +3,38 @@ import { AppComponent } from '../app.component';
 import {CounterComponent} from "./counter.component";
 import {Store} from "@ngrx/store";
 import {BehaviorSubject} from "rxjs";
+import {map} from "rxjs/operators";
 
-describe('AppComponent', () => {
-  let fixture;
-  let mockState;
+describe('CounterComponent', () => {
+  let fixture, component;
   beforeEach(async(() => {
-
     TestBed.configureTestingModule({
       declarations: [
         CounterComponent
       ],
       providers: [{provide: Store, useValue: {}}]
     });
-    TestBed.overrideComponent(CounterComponent, {set: {template: ''}});
-
-
     fixture = TestBed.createComponent(CounterComponent);
-
-    mockState = {
-
-    };
-
-    fixture.store = new BehaviorSubject(mockState);
+    component = fixture.componentInstance;
   }));
-  // it('should create the app', async(() => {
-  //   const app = fixture.debugElement.componentInstance;
-  //   expect(app).toBeTruthy();
-  // }));
+
+  describe('ngOnInit - with BehaviorSubject', () => {
+    let mockState;
+    beforeEach(() => {
+
+      mockState = {
+        stepValue: 5
+      };
+
+      component.store = new BehaviorSubject(mockState);
+      component.store.select = (fn) => component.store.pipe(map(fn));
+    });
+
+    it('should assign state.stepValue to this.step', () => {
+      component.step = 0;
+      component.ngOnInit();
+
+      expect(component.step).toEqual(mockState.stepValue);
+    });
+  });
 });

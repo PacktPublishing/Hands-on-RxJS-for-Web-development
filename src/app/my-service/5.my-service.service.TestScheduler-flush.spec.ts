@@ -25,7 +25,7 @@ describe('MyServiceService with TestScheduler.flush', () => {
 
     beforeEach(() =>{
       scheduler = new TestScheduler((actual, expected) => {
-        console.log(actual, expected);
+        // console.log(actual, expected);
         expect(_isEqual(actual, expected)).toBeTruthy();
       });
       (asyncScheduler.constructor as any).delegate = scheduler;

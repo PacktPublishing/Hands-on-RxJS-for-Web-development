@@ -34,16 +34,6 @@ export class MyServiceService {
       )
   }
 
-  getUserPositionDetails(id) {
-    return this.getUserInfo(id).pipe(
-      mergeMap((user: any) => this.http.get('some_url2?position=' + user.position))
-    )
-  }
-
-  getUserInfo(id) {
-    return this.http.get('user_info_url?userId=' + id);
-  }
-
   getData(timeSec, scheduler = asyncScheduler) {
     return this.http.get('some_url')
       .pipe(

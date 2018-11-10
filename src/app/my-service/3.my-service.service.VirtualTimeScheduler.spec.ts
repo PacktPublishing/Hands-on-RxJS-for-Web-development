@@ -17,7 +17,7 @@ describe('MyServiceService - VirtualTimeScheduler', () => {
     service = TestBed.get(MyServiceService);
   });
 
-  describe('testing getData (with repeatWhen) with done VirtualTimeScheduler', () => {
+  describe('testing getData (repeatWhen)', () => {
     let mockData;
     beforeEach(() => {
       mockData = 5;

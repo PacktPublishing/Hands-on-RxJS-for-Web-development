@@ -18,10 +18,10 @@ describe('MyServiceService - Async', () => {
   });
 
   describe('testing getRangeAsync with Async sequences', () => {
-    it('getRangeAsync should return 1..2..3..4 values - no DONE callback', () => {
+    xit('getRangeAsync should return 1..2..3..4 values - no DONE callback', () => {
       let result: number[] = [];
 
-      service.getRangeAsync().subscribe(value => result.push(value))
+      service.getRangeAsync().subscribe(value => result.push(value));
 
       expect(result).toEqual([1, 2, 3, 4]);
     });
@@ -38,25 +38,6 @@ describe('MyServiceService - Async', () => {
         }
       );
     });
-  });
-
-  describe('getUserPositionDetails', () => {
-    let mockData;
-    beforeEach(() => {
-      mockData = {salary: 10000};
-      service.getUserInfo = jasmine.createSpy().and.returnValue(of({position: 'developer'}, asyncScheduler));
-      (service as any).http.get = jasmine.createSpy().and.returnValue(of(mockData, asyncScheduler));
-    });
-
-    it('should return expected user position details', (done) => {
-
-      service.getUserPositionDetails(13).subscribe((data) => {
-
-        expect(service.getUserInfo).toHaveBeenCalledWith(13);
-        expect(data).toEqual(mockData);
-        done();
-      })
-    })
   });
 
   describe('getAsyncCodeWithPromise', () => {

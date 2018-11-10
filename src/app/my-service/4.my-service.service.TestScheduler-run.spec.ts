@@ -9,8 +9,6 @@ describe('MyServiceService', () => {
   let service: MyServiceService;
 
   beforeEach(() => {
-    console.log('rxjs ', rxjs);
-    console.log('fromEvent ', Object.getOwnPropertyDescriptor(rxjs,'fromEvent'));
     TestBed.configureTestingModule({
       providers: [
         {provide: HttpClient, useValue: {}}
@@ -23,12 +21,12 @@ describe('MyServiceService', () => {
     let scheduler;
     beforeEach(() => {
       scheduler = new TestScheduler((actual, expected) => {
-        console.log(actual, expected);
+        //console.log(actual, expected);
         expect(_isEqual(actual, expected)).toBeTruthy();
       });
     });
 
-    describe('getDataNoScheduler (with repeatWhen) with TestScheduler.run', () => {
+    describe('getDataNoScheduler (repeatWhen)', () => {
       let oldValue;
       it('should repeat initial ajax call in 1 second', () => {
 
@@ -46,7 +44,7 @@ describe('MyServiceService', () => {
       })
     });
 
-    describe('getInputObservable(with switchMap) testing with TestScheduler.run', () => {
+    describe('getInputObservable(switchMap)', () => {
 
       it('should switch to last input value ajax request only', () => {
         scheduler.run((helpers) =>{

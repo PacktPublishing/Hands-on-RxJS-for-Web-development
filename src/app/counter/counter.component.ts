@@ -16,7 +16,7 @@ class CounterComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.store.pipe(map(state => state.stepValue))
+    this.store.select(state => state.stepValue)
       .subscribe((stepValue) => this.step = stepValue);
 
     this.startCounter();
