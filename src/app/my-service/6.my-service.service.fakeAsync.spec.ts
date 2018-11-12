@@ -22,48 +22,17 @@ describe('MyServiceService - testing with fakeAsync', () => {
     it('getRangeAsync should return 1..2..3..4 values - no DONE callback', fakeAsync(() => {
       let result: number[] = [];
 
-      service.getRangeAsync().subscribe(value => result.push(value))
+      service.getRangeAsync().subscribe(value => result.push(value));
       tick(10);
       expect(result).toEqual([1, 2, 3, 4]);
     }));
   });
 
-  describe('getUserPositionDetails (mergeMap)', () => {
-    let mockData;
-    beforeEach(() => {
-      mockData = {salary: 10000};
-      service.getUserInfo = jasmine.createSpy().and.returnValue(of({position: 'developer'}, asyncScheduler));
-      (service as any).http.get = jasmine.createSpy().and.returnValue(of(mockData, asyncScheduler));
-    });
-
-    it('should return expected user position details', fakeAsync(() => {
-      let result;
-      service.getUserPositionDetails(13).subscribe((data) => {
-        result = data;
-      });
-      tick(5);
-      expect(service.getUserInfo).toHaveBeenCalledWith(13);
-      expect(result).toEqual(mockData);
-    }));
-  });
-
-  describe('getAsyncCodeWithPromise', () => {
-
-    it('should return "something" value', fakeAsync(() => {
-      let result;
-      service.getAsyncCodeWithPromise().subscribe((value) => {
-          result = value;
-        });
-      flushMicrotasks();
-      expect(result).toBe('something');
-    }));
-  });
 
   describe('testing getDataNoScheduler (repeatWhen)', () => {
     let mockData;
     beforeEach(() => {
       mockData = 5;
-
     });
 
     it('should add values to array 5+1 times', fakeAsync(() => {
@@ -77,4 +46,17 @@ describe('MyServiceService - testing with fakeAsync', () => {
     }));
 
   });
+
+  describe('getAsyncCodeWithPromise', () => {
+
+    it('should return "something" value', fakeAsync(() => {
+      let result;
+      service.getAsyncCodeWithPromise().subscribe((value) => {
+        result = value;
+      });
+      flushMicrotasks();
+      expect(result).toBe('something');
+    }));
+  });
+
 });
