@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {asyncScheduler, fromEvent, of, from} from 'rxjs';
 import {
   map,
-  mergeMap,
   repeatWhen,
   delay,
   take,
