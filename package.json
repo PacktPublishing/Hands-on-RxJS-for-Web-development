@@ -26,6 +26,7 @@
     "karma-mocha-reporter": "^2.2.5",
     "lodash-es": "^4.17.11",
     "rxjs": "^6.0.0",
+    "rxjs-spy": "^7.3.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
