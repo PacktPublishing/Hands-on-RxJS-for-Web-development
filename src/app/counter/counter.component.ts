@@ -31,8 +31,8 @@ class CounterComponent implements OnInit {
       tag('interval4')
     );
 
-    this.counter3$.subscribe();
-    this.counter4$.subscribe();
+    this.counter1$.subscribe();
+    this.counter2$.subscribe();
   }
 }
 
