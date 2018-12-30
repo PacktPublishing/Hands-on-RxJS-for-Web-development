@@ -1,0 +1,14 @@
+let Rx = window['rxjs'];
+let {interval, range, timer, of, from} = Rx;
+let {delay} = Rx.operators;
+
+// let source$ = of([1, 2], 3)
+// let source$ = from([1, 2])
+// let source$ = from(Promise.resolve(4))
+let source$ = from(of(4))
+let subscription = source$
+.subscribe(data => console.log('next Value', data));
+
+setTimeout(() => {
+  subscription.unsubscribe();
+}, 5000)
