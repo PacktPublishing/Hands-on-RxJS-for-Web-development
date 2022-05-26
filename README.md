@@ -1,3 +1,7 @@
+## [Get this title for $10 on Packt's Spring Sale](https://www.packt.com/V09428?utm_source=github&utm_medium=packt-github-repo&utm_campaign=spring_10_dollar_2022)
+-----
+For a limited period, all eBooks and Videos are only $10. All the practical content you need \- by developers, for developers
+
 # Hands-On RxJS for Web Development [Video]
 This is the code repository for [Hands-On RxJS for Web Development [Video]](https://www.packtpub.com/web-development/hands-rxjs-web-development-video?utm_source=github&utm_medium=repository&utm_campaign=9781788838429), published by [Packt](https://www.packtpub.com/?utm_source=github). It contains all the supporting project files necessary to work through the video course from start to finish.
 ## About the Video Course
